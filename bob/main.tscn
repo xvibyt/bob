@@ -1,8 +1,66 @@
 [gd_scene format=3 uid="uid://bhyjtn7rxaxs"]
 
+[ext_resource type="Script" uid="uid://ot3clsw86x66" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bvc6dpmqbqu6n" path="res://Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dsm6o1v7encaq" path="res://Coin.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cqoim86oq7osq" path="res://CollectedCoins.tscn" id="4_1bvp3"]
 
-[node name="Node2D" type="Node2D" unique_id=673279493]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bais7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(20, 1000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(2000, 20)
+
+[node name="World" type="Node2D" unique_id=673279493]
+script = ExtResource("1_h2yge")
 
 [node name="Player" parent="." unique_id=1658933509 instance=ExtResource("1_ig7tw")]
 position = Vector2(557, 230)
+
+[node name="Map" type="Node" parent="." unique_id=1783709642]
+
+[node name="Wall" type="StaticBody2D" parent="Map" unique_id=1344857939]
+position = Vector2(-171, -171)
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Wall" unique_id=1010820455]
+shape = SubResource("RectangleShape2D_bais7")
+
+[node name="Wall2" type="StaticBody2D" parent="Map" unique_id=1468399723]
+position = Vector2(13, 17)
+
+[node name="Collision" type="CollisionShape2D" parent="Map/Wall2" unique_id=1271996637]
+position = Vector2(-2, 290)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Collision2" type="CollisionShape2D" parent="Map/Wall2" unique_id=712660571]
+position = Vector2(1124, 261)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Collision3" type="CollisionShape2D" parent="Map/Wall2" unique_id=970178054]
+position = Vector2(596, -16)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Collision4" type="CollisionShape2D" parent="Map/Wall2" unique_id=154736517]
+position = Vector2(569, 626)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Panel" parent="." unique_id=1677648635 instance=ExtResource("4_1bvp3")]
+offset_left = 40.0
+offset_top = 25.0
+offset_right = 232.0
+offset_bottom = 121.0
+
+[node name="Coins" type="Node" parent="." unique_id=523157219]
+
+[node name="Coin" parent="Coins" unique_id=1024904434 instance=ExtResource("2_0xm2m")]
+position = Vector2(283, 295)
+
+[node name="Coin2" parent="Coins" unique_id=781820897 instance=ExtResource("2_0xm2m")]
+position = Vector2(442, 509)
+
+[node name="Coin3" parent="Coins" unique_id=775622264 instance=ExtResource("2_0xm2m")]
+position = Vector2(792, 552)
+
+[connection signal="coins_updated" from="." to="Panel" method="update"]
