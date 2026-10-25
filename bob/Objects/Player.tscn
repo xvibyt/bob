@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bvc6dpmqbqu6n"]
+
+[ext_resource type="Texture2D" uid="uid://b0osnbtauw7ia" path="res://Assets/bob_idle-Sheet.png" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://bxiyptd6skp8d" path="res://Scripts/player_controller.gd" id="2_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://cyl2g5gn5dy87" path="res://Assets/bob_run-Sheet.png" id="3_kne1u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig7tw"]
+atlas = ExtResource("1_xhfnw")
+region = Rect2(0, 0, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xm2m"]
+atlas = ExtResource("1_xhfnw")
+region = Rect2(15, 0, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e80uo"]
+atlas = ExtResource("3_kne1u")
+region = Rect2(0, 0, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxr5p"]
+atlas = ExtResource("3_kne1u")
+region = Rect2(15, 0, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpjcp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig7tw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xm2m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e80uo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxr5p")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bais7"]
+
+[node name="Player" type="CharacterBody2D" unique_id=596792834]
+script = ExtResource("2_kpjcp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1295211326]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_kpjcp")
+animation = &"run"
+frame = 1
+frame_progress = 0.10615026
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1082179855]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_bais7")
+
+[node name="Player" type="Node2D" parent="." unique_id=1658933509]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=584284287]
+limit_left = -100
+limit_top = -100
+limit_right = 100
+position_smoothing_speed = 10.0

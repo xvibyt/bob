@@ -13,7 +13,7 @@ config_version=5
 config/name="bob"
 run/main_scene="uid://bhyjtn7rxaxs"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [display]
 
@@ -32,3 +32,4 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.8509804, 0.83137256, 0.84705883, 1)

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cn3hpbcxd5411"]
+
+[ext_resource type="PackedScene" uid="uid://cx7rl4gi0vmd7" path="res://Objects/NextLevel.tscn" id="2_r6nnp"]
+[ext_resource type="PackedScene" uid="uid://dsm6o1v7encaq" path="res://Objects/Coin.tscn" id="3_r6nnp"]
+[ext_resource type="PackedScene" uid="uid://bvc6dpmqbqu6n" path="res://Objects/Player.tscn" id="4_girl1"]
+
+[node name="Level_3" type="Node2D" unique_id=314523976]
+
+[node name="NextLevel" parent="." unique_id=1026638480 instance=ExtResource("2_r6nnp")]
+position = Vector2(281, 603)
+
+[node name="Coins" type="Node" parent="." unique_id=995256281]
+
+[node name="Coin" parent="Coins" unique_id=1024904434 instance=ExtResource("3_r6nnp")]
+position = Vector2(295, 303)
+
+[node name="Coin2" parent="Coins" unique_id=229880641 instance=ExtResource("3_r6nnp")]
+position = Vector2(239, 303)
+
+[node name="Coin3" parent="Coins" unique_id=1428310812 instance=ExtResource("3_r6nnp")]
+position = Vector2(238, 354)
+
+[node name="Coin4" parent="Coins" unique_id=1003963439 instance=ExtResource("3_r6nnp")]
+position = Vector2(295, 352)
+
+[node name="Coin5" parent="Coins" unique_id=2075625085 instance=ExtResource("3_r6nnp")]
+position = Vector2(345, 301)
+
+[node name="Coin6" parent="Coins" unique_id=575008031 instance=ExtResource("3_r6nnp")]
+position = Vector2(347, 352)
+
+[node name="Player" parent="." unique_id=596792834 instance=ExtResource("4_girl1")]

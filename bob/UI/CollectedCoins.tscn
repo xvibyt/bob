@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cqoim86oq7osq"]
+
+[ext_resource type="Texture2D" uid="uid://bjs0k73hsl4my" path="res://Assets/coin_pickup-Sheet.png" id="1_0q07r"]
+[ext_resource type="Script" uid="uid://dgb2v8ckga82y" path="res://Scripts/collected_coins.gd" id="1_f1kck"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bais7"]
+atlas = ExtResource("1_0q07r")
+region = Rect2(4, 4, 7, 7)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=293531227]
+script = ExtResource("1_f1kck")
+
+[node name="Panel" type="Panel" parent="." unique_id=1677648635]
+offset_right = 144.0
+offset_bottom = 72.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=796938695]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -48.0
+offset_right = 96.0
+offset_bottom = 48.0
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1808804827]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -24.0
+offset_bottom = 24.0
+grow_horizontal = 0
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-25, 0)
+texture = SubResource("AtlasTexture_bais7")

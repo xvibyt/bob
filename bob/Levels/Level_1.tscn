@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://5o6jpcnk1apd"]
+
+[ext_resource type="PackedScene" uid="uid://cx7rl4gi0vmd7" path="res://Objects/NextLevel.tscn" id="2_mtno4"]
+[ext_resource type="PackedScene" uid="uid://dsm6o1v7encaq" path="res://Objects/Coin.tscn" id="3_nl7va"]
+
+[node name="Level_1" type="Node2D" unique_id=314523976]
+
+[node name="NextLevel" parent="." unique_id=1026638480 instance=ExtResource("2_mtno4")]
+position = Vector2(-1, 917)
+
+[node name="Coins" type="Node" parent="." unique_id=45429282]
+
+[node name="Coin" parent="Coins" unique_id=1024904434 instance=ExtResource("3_nl7va")]
+position = Vector2(7, 322)
+
+[node name="Coin2" parent="Coins" unique_id=1939273813 instance=ExtResource("3_nl7va")]
+position = Vector2(89, 393)
+
+[node name="Coin3" parent="Coins" unique_id=32083518 instance=ExtResource("3_nl7va")]
+position = Vector2(191, 431)
+
+[node name="Coin4" parent="Coins" unique_id=1231063585 instance=ExtResource("3_nl7va")]
+position = Vector2(315, 448)
+
+[node name="Coin5" parent="Coins" unique_id=1372249397 instance=ExtResource("3_nl7va")]
+position = Vector2(428, 512)
+
+[node name="Coin6" parent="Coins" unique_id=1716119798 instance=ExtResource("3_nl7va")]
+position = Vector2(433, 627)
+
+[node name="Coin7" parent="Coins" unique_id=287748679 instance=ExtResource("3_nl7va")]
+position = Vector2(339, 716)
+
+[node name="Coin8" parent="Coins" unique_id=1965763874 instance=ExtResource("3_nl7va")]
+position = Vector2(183, 716)
+
+[node name="Coin9" parent="Coins" unique_id=165766411 instance=ExtResource("3_nl7va")]
+position = Vector2(71, 720)
+
+[node name="Coin10" parent="Coins" unique_id=1312297709 instance=ExtResource("3_nl7va")]
+position = Vector2(-39, 722)
+
+[node name="Coin11" parent="Coins" unique_id=160990718 instance=ExtResource("3_nl7va")]
+position = Vector2(-135, 727)
+
+[node name="Coin12" parent="Coins" unique_id=1975242515 instance=ExtResource("3_nl7va")]
+position = Vector2(-224, 663)
+
+[node name="Coin13" parent="Coins" unique_id=1841344815 instance=ExtResource("3_nl7va")]
+position = Vector2(-290, 599)
+
+[node name="Coin14" parent="Coins" unique_id=840759462 instance=ExtResource("3_nl7va")]
+position = Vector2(-371, 572)
+
+[node name="Coin15" parent="Coins" unique_id=594472520 instance=ExtResource("3_nl7va")]
+position = Vector2(-424, 643)
+
+[node name="Coin16" parent="Coins" unique_id=1564382771 instance=ExtResource("3_nl7va")]
+position = Vector2(-380, 709)
+
+[node name="Coin17" parent="Coins" unique_id=888570223 instance=ExtResource("3_nl7va")]
+position = Vector2(-313, 767)
+
+[node name="Coin18" parent="Coins" unique_id=1512718892 instance=ExtResource("3_nl7va")]
+position = Vector2(-242, 825)
+
+[node name="Coin19" parent="Coins" unique_id=1307580791 instance=ExtResource("3_nl7va")]
+position = Vector2(-162, 869)
+
+[node name="Coin20" parent="Coins" unique_id=538541949 instance=ExtResource("3_nl7va")]
+position = Vector2(-82, 896)

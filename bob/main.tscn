@@ -1,66 +1,82 @@
-[gd_scene format=3 uid="uid://bhyjtn7rxaxs"]
+[gd_scene format=4 uid="uid://bhyjtn7rxaxs"]
 
-[ext_resource type="Script" uid="uid://ot3clsw86x66" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://bvc6dpmqbqu6n" path="res://Player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dsm6o1v7encaq" path="res://Coin.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://cqoim86oq7osq" path="res://CollectedCoins.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://ot3clsw86x66" path="res://Scripts/main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bvc6dpmqbqu6n" path="res://Objects/Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cqoim86oq7osq" path="res://UI/CollectedCoins.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://ca4mpcgeee2it" path="res://Assets/ground.png" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://5o6jpcnk1apd" path="res://Levels/Level_1.tscn" id="7_272bh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bais7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
-size = Vector2(20, 1000)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1bvp3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(2000, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(30.30603, 1686.0607)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4f1g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
+texture = ExtResource("5_lquwl")
+texture_region_size = Vector2i(15, 15)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yqcxb"]
+tile_size = Vector2i(15, 15)
+sources/0 = SubResource("TileSetAtlasSource_7mycd")
 
 [node name="World" type="Node2D" unique_id=673279493]
 script = ExtResource("1_h2yge")
 
-[node name="Player" parent="." unique_id=1658933509 instance=ExtResource("1_ig7tw")]
-position = Vector2(557, 230)
+[node name="Player" parent="." unique_id=1658933509 groups=["Player"] instance=ExtResource("1_ig7tw")]
 
 [node name="Map" type="Node" parent="." unique_id=1783709642]
 
-[node name="Wall" type="StaticBody2D" parent="Map" unique_id=1344857939]
+[node name="WallPlaceholder" type="StaticBody2D" parent="Map" unique_id=1344857939]
 position = Vector2(-171, -171)
 
-[node name="Collision" type="CollisionShape2D" parent="Map/Wall" unique_id=1010820455]
+[node name="Collision" type="CollisionShape2D" parent="Map/WallPlaceholder" unique_id=1010820455]
 shape = SubResource("RectangleShape2D_bais7")
 
 [node name="Wall2" type="StaticBody2D" parent="Map" unique_id=1468399723]
 position = Vector2(13, 17)
+physics_material_override = SubResource("PhysicsMaterial_1bvp3")
 
-[node name="Collision" type="CollisionShape2D" parent="Map/Wall2" unique_id=1271996637]
-position = Vector2(-2, 290)
+[node name="LeftWall" type="CollisionShape2D" parent="Map/Wall2" unique_id=1271996637]
+position = Vector2(-591, 413.00003)
+scale = Vector2(0.79192096, 0.65300137)
 shape = SubResource("RectangleShape2D_ig7tw")
 
-[node name="Collision2" type="CollisionShape2D" parent="Map/Wall2" unique_id=712660571]
-position = Vector2(1124, 261)
+[node name="RightWall" type="CollisionShape2D" parent="Map/Wall2" unique_id=959804730]
+position = Vector2(557, 419.5)
+scale = Vector2(0.79192096, 0.65300137)
 shape = SubResource("RectangleShape2D_ig7tw")
 
-[node name="Collision3" type="CollisionShape2D" parent="Map/Wall2" unique_id=970178054]
-position = Vector2(596, -16)
-shape = SubResource("RectangleShape2D_0xm2m")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Wall2" unique_id=918815365]
+position = Vector2(-8, -130)
+scale = Vector2(62.08, 1)
+shape = SubResource("RectangleShape2D_d4f1g")
 
-[node name="Collision4" type="CollisionShape2D" parent="Map/Wall2" unique_id=154736517]
-position = Vector2(569, 626)
-shape = SubResource("RectangleShape2D_0xm2m")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/Wall2" unique_id=1329143492]
+position = Vector2(-13, 963)
+scale = Vector2(62.08, 1)
+shape = SubResource("RectangleShape2D_d4f1g")
 
-[node name="Panel" parent="." unique_id=1677648635 instance=ExtResource("4_1bvp3")]
-offset_left = 40.0
-offset_top = 25.0
-offset_right = 232.0
-offset_bottom = 121.0
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2087107139]
+visible = false
+z_index = -1
+texture_filter = 1
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAEAAAABAAIAAAAAAAEAAAABAAMAAAABAAAAAAABAAQAAAAAAAEAAAACAAQAAAABAAEAAAADAAIAAAAAAAEAAAADAAMAAAAAAAEAAAADAAQAAAAAAAEAAAAEAAIAAAAAAAEAAAAEAAMAAAABAAEAAAAEAAQAAAAAAAEAAAAFAAIAAAABAAAAAAAFAAMAAAAAAAEAAAAFAAQAAAABAAEAAAAGAAIAAAAAAAEAAAAGAAMAAAABAAAAAAAGAAQAAAAAAAEAAAAHAAIAAAAAAAEAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAEAAAAIAAIAAAABAAEAAAAIAAMAAAAAAAEAAAAIAAQAAAAAAAEAAAD3/wAAAAAAAAAAAAD3/wEAAAAAAAEAAAD3/wIAAAAAAAEAAAD3/wMAAAABAAEAAAD3/wQAAAAAAAEAAAD4/wAAAAAAAAEAAAD4/wEAAAAAAAEAAAD4/wIAAAAAAAAAAAD4/wMAAAAAAAEAAAD4/wQAAAAAAAEAAAD5/wAAAAAAAAEAAAD5/wEAAAABAAAAAAD5/wIAAAABAAAAAAD5/wMAAAABAAEAAAD5/wQAAAAAAAAAAAD6/wAAAAAAAAEAAAD6/wEAAAABAAEAAAD6/wIAAAAAAAEAAAD6/wMAAAAAAAEAAAD6/wQAAAAAAAEAAAD7/wAAAAAAAAEAAAD7/wEAAAAAAAAAAAD7/wIAAAAAAAEAAAD7/wMAAAAAAAEAAAD7/wQAAAABAAAAAAD8/wAAAAABAAEAAAD8/wEAAAAAAAEAAAD8/wIAAAABAAAAAAD8/wMAAAAAAAEAAAD8/wQAAAAAAAAAAAD9/wAAAAABAAEAAAD9/wEAAAAAAAEAAAD9/wIAAAAAAAEAAAD9/wMAAAAAAAEAAAD9/wQAAAAAAAEAAAD+/wAAAAAAAAEAAAD+/wEAAAAAAAEAAAD+/wIAAAAAAAEAAAD+/wMAAAABAAEAAAD+/wQAAAABAAAAAAD//wAAAAAAAAEAAAD//wEAAAAAAAAAAAD//wIAAAABAAAAAAD//wMAAAAAAAEAAAD//wQAAAABAAAAAAAAAAEAAAABAAAAAAABAAAAAAAAAAEAAAABAAEAAAAAAAEAAAACAAAAAAAAAAEAAAACAAEAAAABAAEAAAADAAAAAAAAAAEAAAADAAEAAAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAAFAAAAAAAAAAEAAAAFAAEAAAAAAAEAAAAGAAAAAAAAAAAAAAAGAAEAAAABAAAAAAAHAAAAAAAAAAEAAAAHAAEAAAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAABAAEAAAD3/wUAAAAAAAEAAAD3/wYAAAAAAAEAAAD3/wcAAAAAAAEAAAD3/wgAAAAAAAEAAAD3/wkAAAAAAAEAAAD4/wUAAAABAAAAAAD4/wYAAAABAAAAAAD4/wcAAAAAAAAAAAD4/wgAAAAAAAEAAAD4/wkAAAABAAEAAAD5/wUAAAAAAAEAAAD5/wYAAAABAAAAAAD5/wcAAAAAAAEAAAD5/wgAAAABAAAAAAD5/wkAAAAAAAEAAAD6/wUAAAAAAAEAAAD6/wYAAAABAAEAAAD6/wcAAAAAAAEAAAD6/wgAAAABAAEAAAD6/wkAAAAAAAEAAAD7/wUAAAAAAAEAAAD7/wYAAAAAAAEAAAD7/wcAAAAAAAAAAAD7/wgAAAAAAAEAAAD7/wkAAAABAAAAAAD8/wUAAAABAAEAAAD8/wYAAAAAAAEAAAD8/wcAAAAAAAEAAAD8/wgAAAAAAAEAAAD8/wkAAAAAAAEAAAD9/wUAAAAAAAEAAAD9/wYAAAAAAAAAAAD9/wcAAAAAAAEAAAD9/wgAAAAAAAEAAAD9/wkAAAAAAAEAAAD+/wUAAAAAAAEAAAD+/wYAAAAAAAAAAAD+/wcAAAABAAAAAAD+/wgAAAAAAAEAAAD+/wkAAAAAAAAAAAD//wUAAAAAAAAAAAD//wYAAAAAAAEAAAD//wcAAAAAAAEAAAD//wgAAAAAAAAAAAD//wkAAAAAAAAAAAAAAAUAAAAAAAEAAAAAAAYAAAABAAAAAAAAAAcAAAAAAAEAAAAAAAgAAAAAAAAAAAAAAAkAAAABAAAAAAABAAUAAAAAAAEAAAABAAYAAAABAAEAAAABAAcAAAAAAAEAAAABAAgAAAABAAEAAAABAAkAAAAAAAEAAAACAAUAAAAAAAEAAAACAAYAAAAAAAEAAAACAAcAAAAAAAEAAAACAAgAAAABAAEAAAACAAkAAAAAAAEAAAADAAUAAAAAAAAAAAADAAYAAAAAAAEAAAADAAcAAAAAAAAAAAADAAgAAAAAAAEAAAADAAkAAAAAAAEAAAAEAAUAAAAAAAEAAAAEAAYAAAAAAAEAAAAEAAcAAAAAAAEAAAAEAAgAAAABAAAAAAAEAAkAAAAAAAAAAAAFAAUAAAABAAEAAAAFAAYAAAABAAEAAAAFAAcAAAAAAAEAAAAFAAgAAAAAAAEAAAAFAAkAAAAAAAEAAAAGAAUAAAAAAAEAAAAGAAYAAAAAAAEAAAAGAAcAAAABAAAAAAAGAAgAAAAAAAEAAAAGAAkAAAAAAAEAAAAHAAUAAAAAAAEAAAAHAAYAAAAAAAEAAAAHAAcAAAAAAAEAAAAHAAgAAAAAAAEAAAAHAAkAAAAAAAEAAAAIAAUAAAAAAAEAAAAIAAYAAAABAAEAAAAIAAcAAAAAAAEAAAAIAAgAAAAAAAEAAAAIAAkAAAAAAAEAAAACAAMAAAAAAAEAAAACAAIAAAABAAEAAAD2/wAAAAAAAAEAAAD2/wEAAAAAAAEAAAD2/wIAAAAAAAEAAAD2/wMAAAAAAAEAAAD2/wQAAAAAAAEAAAD2/wUAAAAAAAEAAAD2/wYAAAAAAAEAAAD2/wcAAAAAAAEAAAD2/wgAAAAAAAEAAAD2/wkAAAAAAAEAAAAJAAAAAAAAAAEAAAAJAAEAAAAAAAEAAAAJAAIAAAAAAAEAAAAJAAMAAAAAAAEAAAAJAAQAAAAAAAEAAAAJAAUAAAAAAAEAAAAJAAYAAAAAAAEAAAAJAAcAAAAAAAEAAAAJAAgAAAAAAAEAAAAJAAkAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_yqcxb")
 
-[node name="Coins" type="Node" parent="." unique_id=523157219]
+[node name="CurrentLevel" type="Node" parent="." unique_id=1199608908]
 
-[node name="Coin" parent="Coins" unique_id=1024904434 instance=ExtResource("2_0xm2m")]
-position = Vector2(283, 295)
+[node name="Level_1" parent="CurrentLevel" unique_id=314523976 instance=ExtResource("7_272bh")]
 
-[node name="Coin2" parent="Coins" unique_id=781820897 instance=ExtResource("2_0xm2m")]
-position = Vector2(442, 509)
+[node name="CanvasLayer" parent="." unique_id=293531227 instance=ExtResource("4_1bvp3")]
 
-[node name="Coin3" parent="Coins" unique_id=775622264 instance=ExtResource("2_0xm2m")]
-position = Vector2(792, 552)
-
-[connection signal="coins_updated" from="." to="Panel" method="update"]
+[connection signal="coins_updated" from="." to="Player" method="_coins_updated"]
+[connection signal="coins_updated" from="." to="CanvasLayer" method="update"]
