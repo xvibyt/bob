@@ -2,11 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cx7rl4gi0vmd7" path="res://Objects/NextLevel.tscn" id="2_r6nnp"]
 [ext_resource type="PackedScene" uid="uid://dsm6o1v7encaq" path="res://Objects/Coin.tscn" id="3_r6nnp"]
-[ext_resource type="PackedScene" uid="uid://oo8h4de4fimx" path="res://Objects/Spike.tscn" id="4_67bi5"]
 [ext_resource type="PackedScene" uid="uid://bvc6dpmqbqu6n" path="res://Objects/Player.tscn" id="4_girl1"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_girl1"]
-size = Vector2(2000, 20)
 
 [node name="Level_3" type="Node2D" unique_id=314523976]
 
@@ -34,24 +30,3 @@ position = Vector2(345, 301)
 position = Vector2(347, 352)
 
 [node name="Player" parent="." unique_id=596792834 instance=ExtResource("4_girl1")]
-
-[node name="Spikes" type="Node" parent="." unique_id=865898882]
-
-[node name="Spike" parent="Spikes" unique_id=469303836 instance=ExtResource("4_67bi5")]
-position = Vector2(-97, 93)
-
-[node name="Spike2" parent="Spikes" unique_id=209992182 instance=ExtResource("4_67bi5")]
-position = Vector2(100, 98)
-
-[node name="NextLevel2" parent="." unique_id=2048465280 instance=ExtResource("2_r6nnp")]
-position = Vector2(-1, 1500)
-
-[node name="Boundary" type="StaticBody2D" parent="." unique_id=294513042]
-
-[node name="Top" type="CollisionShape2D" parent="Boundary" unique_id=1403242175]
-position = Vector2(0, -50)
-shape = SubResource("RectangleShape2D_girl1")
-
-[node name="Top2" type="CollisionShape2D" parent="Boundary" unique_id=430281969]
-position = Vector2(0, 1600)
-shape = SubResource("RectangleShape2D_girl1")

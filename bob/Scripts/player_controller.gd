@@ -22,7 +22,3 @@ func _process(delta: float) -> void:
 
 func _coins_updated(coins: int) -> void:
 	velocity  = velocity.move_toward(position.direction_to(get_global_mouse_position()) * 1000, 500)
-
-
-func _spike_touched() -> void:
-	velocity = Vector2.ZERO
