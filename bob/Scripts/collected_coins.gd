@@ -4,5 +4,4 @@ class_name CollectedCoinsUI extends CanvasLayer
 
 
 func update(coins: int) -> void:
-	print("ADD COIN")
 	AmountDisplay.text = str(coins)

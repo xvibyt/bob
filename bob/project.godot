@@ -18,6 +18,7 @@ config/icon="res://Assets/icon.svg"
 [display]
 
 window/stretch/mode="canvas_items"
+window/snap/snap_2d_transforms_to_pixel=true
 
 [editor_plugins]
 

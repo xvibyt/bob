@@ -2,18 +2,13 @@
 
 [ext_resource type="Script" uid="uid://ot3clsw86x66" path="res://Scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bvc6dpmqbqu6n" path="res://Objects/Player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cs3qwh0mxt0y0" path="res://Levels/side_boundary.gd" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cqoim86oq7osq" path="res://UI/CollectedCoins.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ca4mpcgeee2it" path="res://Assets/ground.png" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://5o6jpcnk1apd" path="res://Levels/Level_1.tscn" id="7_272bh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bais7"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1bvp3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
-size = Vector2(30.30603, 1686.0607)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4f1g"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(20, 1000)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
 texture = ExtResource("5_lquwl")
@@ -34,35 +29,16 @@ script = ExtResource("1_h2yge")
 
 [node name="Map" type="Node" parent="." unique_id=1783709642]
 
-[node name="WallPlaceholder" type="StaticBody2D" parent="Map" unique_id=1344857939]
-position = Vector2(-171, -171)
+[node name="SideBoundary" type="StaticBody2D" parent="Map" unique_id=905365587]
+script = ExtResource("3_7mycd")
 
-[node name="Collision" type="CollisionShape2D" parent="Map/WallPlaceholder" unique_id=1010820455]
-shape = SubResource("RectangleShape2D_bais7")
+[node name="LeftWall" type="CollisionShape2D" parent="Map/SideBoundary" unique_id=687709381]
+position = Vector2(-576, 0)
+shape = SubResource("RectangleShape2D_272bh")
 
-[node name="Wall2" type="StaticBody2D" parent="Map" unique_id=1468399723]
-position = Vector2(13, 17)
-physics_material_override = SubResource("PhysicsMaterial_1bvp3")
-
-[node name="LeftWall" type="CollisionShape2D" parent="Map/Wall2" unique_id=1271996637]
-position = Vector2(-591, 413.00003)
-scale = Vector2(0.79192096, 0.65300137)
-shape = SubResource("RectangleShape2D_ig7tw")
-
-[node name="RightWall" type="CollisionShape2D" parent="Map/Wall2" unique_id=959804730]
-position = Vector2(557, 419.5)
-scale = Vector2(0.79192096, 0.65300137)
-shape = SubResource("RectangleShape2D_ig7tw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Wall2" unique_id=918815365]
-position = Vector2(-8, -130)
-scale = Vector2(62.08, 1)
-shape = SubResource("RectangleShape2D_d4f1g")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/Wall2" unique_id=1329143492]
-position = Vector2(-13, 963)
-scale = Vector2(62.08, 1)
-shape = SubResource("RectangleShape2D_d4f1g")
+[node name="RightWall" type="CollisionShape2D" parent="Map/SideBoundary" unique_id=2087886531]
+position = Vector2(576, 0)
+shape = SubResource("RectangleShape2D_272bh")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2087107139]
 visible = false
@@ -80,3 +56,4 @@ tile_set = SubResource("TileSet_yqcxb")
 
 [connection signal="coins_updated" from="." to="Player" method="_coins_updated"]
 [connection signal="coins_updated" from="." to="CanvasLayer" method="update"]
+[connection signal="spike_touched" from="." to="Player" method="_spike_touched"]

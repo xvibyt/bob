@@ -1,23 +1,45 @@
 [gd_scene format=3 uid="uid://dkg4fx1vqqph8"]
 
 [ext_resource type="PackedScene" uid="uid://cx7rl4gi0vmd7" path="res://Objects/NextLevel.tscn" id="2_hfjsb"]
+[ext_resource type="PackedScene" uid="uid://oo8h4de4fimx" path="res://Objects/Spike.tscn" id="3_4vss1"]
 [ext_resource type="PackedScene" uid="uid://dsm6o1v7encaq" path="res://Objects/Coin.tscn" id="3_hfjsb"]
 
-[node name="Level_2" type="Node2D" unique_id=314523976]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfjsb"]
+size = Vector2(2000, 20)
 
-[node name="NextLevel" parent="." unique_id=1026638480 instance=ExtResource("2_hfjsb")]
-position = Vector2(6, 611)
+[node name="Level_2" type="Node2D" unique_id=314523976]
 
 [node name="Coins" type="Node" parent="." unique_id=1058959872]
 
 [node name="Coin" parent="Coins" unique_id=1024904434 instance=ExtResource("3_hfjsb")]
-position = Vector2(297, 673)
+position = Vector2(181, 1398)
 
 [node name="Coin2" parent="Coins" unique_id=380125071 instance=ExtResource("3_hfjsb")]
-position = Vector2(241, 673)
+position = Vector2(125, 1398)
 
 [node name="Coin3" parent="Coins" unique_id=909493352 instance=ExtResource("3_hfjsb")]
-position = Vector2(240, 724)
+position = Vector2(124, 1449)
 
 [node name="Coin4" parent="Coins" unique_id=1308685619 instance=ExtResource("3_hfjsb")]
-position = Vector2(297, 722)
+position = Vector2(181, 1447)
+
+[node name="Spikes" type="Node" parent="." unique_id=39860254]
+
+[node name="Spike" parent="Spikes" unique_id=858411375 instance=ExtResource("3_4vss1")]
+position = Vector2(-171, 220)
+
+[node name="Spike2" parent="Spikes" unique_id=2057422808 instance=ExtResource("3_4vss1")]
+position = Vector2(172, 224)
+
+[node name="NextLevel" parent="." unique_id=1026638480 instance=ExtResource("2_hfjsb")]
+position = Vector2(-1, 1282)
+
+[node name="Boundary" type="StaticBody2D" parent="." unique_id=3616884]
+
+[node name="Top" type="CollisionShape2D" parent="Boundary" unique_id=1771089876]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_hfjsb")
+
+[node name="Top2" type="CollisionShape2D" parent="Boundary" unique_id=1407734372]
+position = Vector2(0, 1600)
+shape = SubResource("RectangleShape2D_hfjsb")

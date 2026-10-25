@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://oo8h4de4fimx"]
+
+[ext_resource type="Script" uid="uid://dlksynno1rmux" path="res://Scripts/spike_touch.gd" id="1_dplyy"]
+[ext_resource type="Texture2D" uid="uid://bje7v26toooxb" path="res://Assets/Scissors.png" id="2_dplyy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wppn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dplyy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dplyy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Spike" type="Area2D" unique_id=1024904434]
+collision_layer = 0
+script = ExtResource("1_dplyy")
+
+[node name="TouchArea" type="CollisionShape2D" parent="." unique_id=695639718]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_6wppn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1794680233]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_dplyy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
