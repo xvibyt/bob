@@ -5,11 +5,15 @@ Beat levels while dodging obstacles to paint the world. After each level, the wo
 <img width="1208" height="866" alt="bob_running" src="https://github.com/user-attachments/assets/d843a086-3cd8-430b-8a01-23014540ed11" />
 
 
+
+
 How?
 I built it using Godot. I used GDScript for scripting and Aseprite for drawing the assets.
 
 Why?
 I have always thought of making a game like this. A World made out of Paper.
+
+Right now, it has messy code, but I will probably revision it someday. I learned a few stuff out of this project and could maybe even rewrite the code completely, to make it more manageable.
 
 
 # Controls
